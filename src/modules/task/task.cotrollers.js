@@ -31,3 +31,8 @@ export const filterByTaskSharedOption = catchAsyncError(async (req, res) => {
     const filtered = await Task.find({ isShared })
     res.json({ message: filtered })
 })
+
+export const sortByTaskSharedOption = catchAsyncError(async (req, res) => {
+    const sorted = await Task.find({}).sort({ isShared: 1 })
+    res.json({ message: sorted })
+})

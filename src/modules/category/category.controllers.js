@@ -27,3 +27,8 @@ export const filterCategoryByName = catchAsyncError(async (req, res) => {
     const filtered = await Category.find({ name }).populate('userId', '-_id -password')
     res.json({ message: filtered })
 })
+
+export const sortByCategoryName = catchAsyncError(async (req, res) => {
+    const sorted = await Category.find({}).sort({ name: 'desc' });
+    res.json({ message: sorted })
+})
