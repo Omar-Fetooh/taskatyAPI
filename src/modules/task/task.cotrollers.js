@@ -17,10 +17,11 @@ export const addTask = catchAsyncError(async (req, res) => {
 })
 
 export const updateTaskById = catchAsyncError(async (req, res) => {
-    const data = await Task.findByIdAndUpdate(req.params.taskId, req.body)
+    const data = await Task.findByIdAndUpdate(req.params.taskId, req.body, { new: true })
     res.json({ message: "Task Updated Successfully", data })
 })
 
 export const deleteTaskById = catchAsyncError(async (req, res) => {
-
+    await Task.findByIdAndDelete(req.params.taskId, req.body)
+    res.json({ message: "Task Deleted Successfully" })
 })

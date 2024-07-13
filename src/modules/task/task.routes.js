@@ -7,7 +7,6 @@ const tasksRouter = Router();
 
 tasksRouter.route('/').get(auth, getAllTasks).post(auth, addTask)
 
-
 tasksRouter.route('/:taskId')
     .put(auth, taskMiddleware, updateTaskById)
     .delete(auth, taskMiddleware, deleteTaskById)
