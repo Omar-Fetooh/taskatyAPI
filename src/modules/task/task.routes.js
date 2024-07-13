@@ -10,15 +10,17 @@ import {
 
 import { auth } from '../../middlewares/auth.middleware.js';
 import taskMiddleware from './task.middleware.js';
+import { addTaskSchema } from './task.validations.js';
+import { validate } from '../../middlewares/validate.middleware.js';
 
 const tasksRouter = Router();
 
 tasksRouter.route('/')
     .get(auth, getAllTasks)
-    .post(auth, addTask)
+    .post(auth, validate(addTaskSchema), addTask)
 
 tasksRouter.route('/:taskId')
-    .put(auth, taskMiddleware, updateTaskById)
+    .put(auth, validate(addTaskSchema), taskMiddleware, updateTaskById)
     .delete(auth, taskMiddleware, deleteTaskById)
 
 tasksRouter.get('/filter', auth, filterByTaskSharedOption)
