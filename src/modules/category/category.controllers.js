@@ -21,3 +21,9 @@ export const deleteCatById = catchAsyncError(async (req, res) => {
     await Category.findByIdAndDelete(req.params.categoryId)
     res.json({ message: "Category Deleted Successfully" })
 })
+
+export const filterCategoryByName = catchAsyncError(async (req, res) => {
+    const { name } = req.query;
+    const filtered = await Category.find({ name }).populate('userId', '-_id -password')
+    res.json({ message: filtered })
+})

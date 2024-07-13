@@ -25,3 +25,9 @@ export const deleteTaskById = catchAsyncError(async (req, res) => {
     await Task.findByIdAndDelete(req.params.taskId, req.body)
     res.json({ message: "Task Deleted Successfully" })
 })
+
+export const filterByTaskSharedOption = catchAsyncError(async (req, res) => {
+    const { isShared } = req.query;
+    const filtered = await Task.find({ isShared })
+    res.json({ message: filtered })
+})
