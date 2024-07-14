@@ -61,8 +61,8 @@ Tasks can be private (visible only to the creator) or shared (visible to all use
 
 ### Special Queries:
 
--`GET/categories/filterByName?name=Work`: Filter categories by name.
+- `GET/categories/filterByName?name=Work`: Filter categories by name.
 
--`GET/tasks/filterByShared?shared=true`: Filter tasks by shared status.
+- `GET/tasks/filterByShared?shared=true`: Filter tasks by shared status.
 
--`GET/tasks/sortBySharedOption`: Sort tasks by shared status.
+- `GET/tasks/sortBySharedOption`: Sort tasks by shared status.
