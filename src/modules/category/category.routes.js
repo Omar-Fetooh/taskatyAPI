@@ -14,7 +14,7 @@ categoryRouter.route('/')
 
 categoryRouter.route('/:categoryId')
     .put(auth, validate(addCategorySchema), catMiddleware, updateCatById)
-    .delete(auth, validate(addCategorySchema), catMiddleware, deleteCatById);
+    .delete(auth, catMiddleware, deleteCatById);
 
 categoryRouter.get('/filter', auth, filterCategoryByName)
 categoryRouter.get('/sort', auth, sortByCategoryName)

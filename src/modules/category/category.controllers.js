@@ -29,6 +29,6 @@ export const filterCategoryByName = catchAsyncError(async (req, res) => {
 })
 
 export const sortByCategoryName = catchAsyncError(async (req, res) => {
-    const sorted = await Category.find({}).sort({ name: 'desc' });
+    const sorted = await Category.find({}).sort({ name: 'asc' });
     res.json({ message: sorted })
 })
