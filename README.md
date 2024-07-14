@@ -34,7 +34,7 @@ Tasks can be private (visible only to the creator) or shared (visible to all use
 - MongoDB
 - Mongoose
 - JWT for authentication
--Joi for input validation
+- Joi for input validation
 
 ## API EndPoints
 ### Users:
