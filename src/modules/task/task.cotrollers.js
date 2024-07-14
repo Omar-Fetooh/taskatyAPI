@@ -1,9 +1,13 @@
 import mongoose from 'mongoose'
 import Task from "../../../database/models/task.model.js"
 import { catchAsyncError } from "../../utils/error.js";
+import { paginationFunction } from '../../utils/pagination.js';
 
 export const getAllTasks = catchAsyncError(async (req, res) => {
-    const tasks = await Task.find().populate('categoryId');
+    const { page, size } = req.query;
+    const { limit, skip } = paginationFunction({ page, size })
+
+    const tasks = await Task.find().populate('categoryId').limit(limit).skip(skip);
     res.json({ message: tasks })
 })
 
